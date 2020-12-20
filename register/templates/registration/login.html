@@ -1,1 +1,18 @@
 {% extends "game/base.html" %}
+
+{% block title %}
+<title>Login Here</title>
+
+{% endblock title %}
+
+{% block content %}
+<form method="post" class="form-group">
+    {% csrf_token %}
+    <!--!I think django has its automatic login form that is applied here.-->
+    {{ form }}
+    <button type="submit" class="btn btn-success">Login</button>
+    
+</form>
+
+<!--!I am having trouble redirecting after login-->
+{% endblock content %}

@@ -1,0 +1,39 @@
+
+{% extends "game/base.html" %}
+
+{% load static %}
+
+{% block title %}
+<title>Play</title>
+{% endblock title %}
+
+{% block content %}
+
+
+<audio autoplay>
+    <source src="{{media.blue.url}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+
+<input type="text" id=textbox>
+
+<p id=lblTimer>05</p>
+<p id="lblColour">My name shows here</p>
+
+<ul>
+    <li id="Yellow">Yellow</li>
+    <li id="GreenYellow">GreenYellow</li>
+    <li id="Green">Green</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+    <li id="Yellow">Yellow</li>
+</ul>
+
+{% endblock content %}

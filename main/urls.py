@@ -15,13 +15,20 @@ Including another URLconf
 """
 #!Main URL Manager.
 
+from os import stat
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', include("register.urls")),
     path('', include("game.urls")),
     path('', include("django.contrib.auth.urls"))
-    
-]
+    #!This is essentially just playing the media root at that specific url
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#?Now I am kind of confused because I no longer need the static thingy. 
+#!I need it!! For proof, when I restart the server, I will get an error. 
+#urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#http://127.0.0.1:8000/static/game/img/rio.png

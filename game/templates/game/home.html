@@ -4,3 +4,13 @@
 <title>Home</title>
 {% endblock title %}
 
+{% block content %}
+{% if logged_in %}
+<!--!In django, I need to make this a form to track whether it has been clicked or not. -->
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit", name="start", value="start", class="btn btn-success">START GAME</button>
+</form>
+
+{% endif %}
+{% endblock content %}
