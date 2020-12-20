@@ -9,31 +9,90 @@
 
 {% block content %}
 
-
-<audio autoplay>
-    <source src="{{media.blue.url}}" type="audio/mpeg">
-    Your browser does not support the audio element.
+<audio id="yellowAudio">
+    <source src="{{media.yellow.url}}" type="audio/mpeg">
 </audio>
 
+<audio id="greenyellowAudio">
+    <source src="{{media.greenyellow.url}}" type="audio/mpeg">
+</audio>
 
+<audio id="greenAudio">
+    <source src="{{media.green.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="skyblueAudio">
+    <source src="{{media.skyblue.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="grayAudio">
+    <source src="{{media.gray.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="orangeAudio">
+    <source src="{{media.orange.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="pinkAudio">
+    <source src="{{media.pink.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="magentaAudio">
+    <source src="{{media.magenta.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="redAudio">
+    <source src="{{media.red.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="purpleAudio">
+    <source src="{{media.purple.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="blueAudio">
+    <source src="{{media.blue.url}}" type="audio/mpeg">
+</audio>
+
+<audio id="blackAudio">
+    <source src="{{media.black.url}}" type="audio/mpeg">
+</audio>
+
+<br>
+<br>
+<p1 id=lblTimer>05</p1>
+<br>
+<p2 id="lblColor">The color name shows here</p2>
+<br>
 <input type="text" id=textbox>
 
-<p id=lblTimer>05</p>
-<p id="lblColour">My name shows here</p>
-
 <ul>
-    <li id="Yellow">Yellow</li>
-    <li id="GreenYellow">GreenYellow</li>
-    <li id="Green">Green</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
-    <li id="Yellow">Yellow</li>
+<li id="yellow">yellow</li> 
+<div id="rectangle" style="width: 50px; height: 25px; background-color: yellow;">.</div>
+<li id="greenyellow">light green</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: greenyellow;">.</div>
+<li id="green">green</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: green;">.</div>
+<li id="skyblue">light blue</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: skyblue;">.</div>
+<li id="white">red</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: red;">.</div>
+<li id="gray">gray</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: gray;">.</div>
+<li id="orange">orange</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: orange;">.</div>
+<li id="pink">pink</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: pink;">.</div>
+<li id="magenta">magenta</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: magenta;">.</div>
+<li id="red">red</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: red;">.</div>
+<li id="purple">purple</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: purple;">.</div>
+<li id="black">black</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: black;">.</div>
 </ul>
+
+
+<script src="{% static 'game/js/play.js' %}"></script>
 
 {% endblock content %}

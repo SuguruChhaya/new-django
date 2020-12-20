@@ -18,16 +18,18 @@ class Player(models.Model):
     highscore = models.IntegerField(null=True)
 
 class Media(models.Model):
-    black = models.FileField(blank=True, null=True)
-    blue = models.FileField(blank=True, null=True)
-    grey = models.FileField(blank=True, null=True)
+    #*When I change orders, I have to redo it. 
+    #*Also Im not doing white cuz no way I can see it. 
+    yellow = models.FileField(blank=True, null=True)
+    greenyellow = models.FileField(blank=True, null=True)
     green = models.FileField(blank=True, null=True)
-    light_blue = models.FileField(blank=True, null=True)
-    light_green = models.FileField(blank=True, null=True)
-    magenta = models.FileField(blank=True, null=True)
+    skyblue = models.FileField(blank=True, null=True)
+    gray = models.FileField(blank=True, null=True)
     orange = models.FileField(blank=True, null=True)
     pink = models.FileField(blank=True, null=True)
-    purple = models.FileField(blank=True, null=True)
+    magenta = models.FileField(blank=True, null=True)
     red = models.FileField(blank=True, null=True)
-    white = models.FileField(blank=True, null=True)
-    yellow = models.FileField(blank=True, null=True)
+    purple = models.FileField(blank=True, null=True)
+    blue = models.FileField(blank=True, null=True)
+    black = models.FileField(blank=True, null=True)
+    
