@@ -88,8 +88,7 @@ function fortyFiveSecFunc(){
         console.log(`chosenDisplay ${chosenDisplay}`);
         //console.log(`textbox.innerText ${textbox.value}`);
         console.log(`chosenAudio ${chosenAudio}`);
-        console.log("lol");
-        //?Why the fck isn't the javascript changing in the browser??????
+        
 
         answered = false;
     
