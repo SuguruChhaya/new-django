@@ -1,8 +1,8 @@
 const mainloopSpeed = 100;
 //!Since javascript cannot keep up with this, I need to make it 10 milliseconds
 const mainLoopAdjust = 1000 / mainloopSpeed;
-let fiveSecCountdown = 5 * mainLoopAdjust;
-let fortyFiveSecCountdown = 45 * mainLoopAdjust;
+let fiveSecCountdown = 2 * mainLoopAdjust;
+let fortyFiveSecCountdown = 5 * mainLoopAdjust;
 let lblTimer = document.getElementById('lblTimer');
 let lblColor = document.getElementById('lblColor');
 let textbox = document.getElementById('textbox')
@@ -32,9 +32,13 @@ let audioCounter = audioCounterSeconds * mainLoopAdjust;
 let answered = true;
 let chosenItem;
 
+//TODO I must be able to redirect to a web page that allows me to modify the value in the model. 
+//TODO Or, I should be able to edit models right from javascript. 
+
 function mainloop(){
     if (run){
         if (fiveSecCountdown > 0){
+            getPrevious();
             fiveSecFunc();
         }
         else if (fiveSecCountdown > -1 * mainLoopAdjust){
@@ -44,9 +48,113 @@ function mainloop(){
         else if (fortyFiveSecCountdown > 0){
             fortyFiveSecFunc();
         }
+
+        else{
+            //!I have to do the following
+            //!I HAVE TO DO THE FIRST STEP BEFORE THE GAME ANYWAY TO SHOW THE 
+            //*1. Get the high score from the model in this javascript file. 
+            //*2. Compare it with the current score. 
+            //*3. If the current number is larger, I can 
+            //!Instead of an on-submit, I want it to work automatically when this else block is ran. 
+            //window.location.replace("/", a="hello");
+            //!To actually use jquery, I need to be import it as a script in my html file like:
+            //<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+            //!I can choose the version (probably gonna use the latest version. )
+            //?Somehow some ppl have this link as their script: https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js 
+            //Maybe watch a youtube tutorial?? https://www.youtube.com/watch?v=zxvtUr3Cmto  
+            //?I need to look into what the widgets thing in the model will do.
+            //*This is also mentioned in the real python article at https://realpython.com/django-and-ajax-form-submissions/
+            //*This must play a role in getting or submitting.
+            run = false;
+            /*
+            $(document).on('sumbit', '#submit_data', function(event){
+                event.preventDefault();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/submit_data', 
+                    data:{
+                        name:${'#name'}.val(),
+
+                    }
+                }
+            });
+            */
+            //*AJAX stands for asynchronus javascript and XML
+            //https://stackoverflow.com/questions/61929987/redirect-django-url-with-javascript
+            //https://stackoverflow.com/questions/49500189/django-how-to-save-javascript-variable-into-django-database
+            //https://stackoverflow.com/questions/13465711/how-do-i-post-with-jquery-ajax-in-django 
+
+            //https://www.youtube.com/watch?v=KgnPSmrQrXI
+
+            /*Ajax basic formula
+            Ajax allows us to submit information without refreshing page
+            Do I need to create a form in HTML in order to submit information?
+
+            $(document).on('submit', #new_user_form (this is the id for the form), function(event)){
+                //*Prevent page from refreshing
+                event.preventDefault();
+
+                $.ajax({
+                    type:'POST',
+                    url:'/user/create',
+                    data:{
+                        name:${'name'}.val();
+                        email: ${'#email'}.val();
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val();
+                    }
+                    success:function(){
+                        alert("Created New User!")
+                    }
+
+                })
+
+
+            };
+
+                //!After adding that portion to the Javascript, I have to create a view for the corresponding url
+                //!My url will be home but I don't necessarily want to do the data giving when I reach home. 
+                //*I want to first give data, give javascript popup, after user clicks OK, I want to reload to the home page. 
+                //!Need to add csrf token in HTML
+                <form id="new_user_form">{% csrf_token %}
+
+                Then in views.py I will create a method:
+                def create_user(request):
+                    if request.method == 'POST':
+                        name = request.POST['name']
+
+            */
+        }
         
     }
 }
+//!To make things simpler, I think I should just create a new simple registration form for now using ajax
+//!Or, I should try it out on the login window or the highscores window. 
+
+function getPrevious(){
+    //!Here I want to get the value of the previous high score. 
+    //So the django {% url %} method will generate a new url based on the form information
+    //https://stackoverflow.com/questions/4599423/using-url-in-django-templates
+
+//!Somehow JsonResponse is involved. 
+<a href="{% url 'login' %}">logout</a>
+    $(document).ready(function(event){
+        event.preventDefault();
+        //*In jquery, # means the ID. 
+
+        $.ajax({
+            dataType: 'json', 
+            type: 'GET',
+            url: '/submit_data', 
+            data:{
+                name:${'#name'}.val()
+
+            }
+        }
+    });
+}
+//https://stackoverflow.com/questions/46322894/change-a-django-model-with-javascript 
+//I need to dump some json stuff from my views. 
 
 function fiveSecFunc(){
     fiveSecCountdown -= 1;
@@ -79,29 +187,22 @@ function fortyFiveSecFunc(){
         //*the next loop in the else block. 
         audioCounter = 0;
 
-
+        //*Had something to do with the cache. Ctrl+f5 saved the day. 
 
 
         //*Since they are quite confusing, I need to log out all the colors out in console. 
-        console.log(`chosenFont ${chosenFont}`);
-        console.log(`correctFont ${correctFont}`);
-        console.log(`chosenDisplay ${chosenDisplay}`);
-        //console.log(`textbox.innerText ${textbox.value}`);
-        console.log(`chosenAudio ${chosenAudio}`);
-        console.log("lol");
-        //?Why the fck isn't the javascript changing in the browser??????
 
         answered = false;
-    
+
+        //favicon not found is a minor error. 
     }
 
     else{
         repeatAudio();
 
-        
-
-        if (textbox.innerHTML == correctFont){
+        if (textbox.value == correctFont){
             answered = true;
+            textbox.value = "";
         }
     }
 }

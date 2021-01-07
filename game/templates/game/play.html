@@ -57,11 +57,16 @@
     <source src="{{media.black.url}}" type="audio/mpeg">
 </audio>
 
+<p>Previous score: </p>
+<p id="previousScore"></p>
+<p>Current score: </p>
+<p id="currentScore"></p>
+
 <br>
 <br>
-<p1 id=lblTimer>05</p1>
+<p1 id=lblTimer>5</p1>
 <br>
-<p2 id="lblColor">The color name shows here</p2>
+<p2 id="lblColor" style="font-size: 100px; font-weight: 500px;">The color name shows here</p2>
 <br>
 <input type="text" id=textbox>
 
@@ -88,11 +93,19 @@
 <div id="rectangle" style="width: 50px; height: 25px; background-color: red;">.</div>
 <li id="purple">purple</li>
 <div id="rectangle" style="width: 50px; height: 25px; background-color: purple;">.</div>
+<li id="blue">purple</li>
+<div id="rectangle" style="width: 50px; height: 25px; background-color: blue;">.</div>
 <li id="black">black</li>
 <div id="rectangle" style="width: 50px; height: 25px; background-color: black;">.</div>
 </ul>
 
+<!--!The todo list app didn't have an action tag in the forms tag. I think it doesn't really play a big role. -->
+<form id=#submit action="/submit">
+    {% csrf_token %}
+</form>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'game/js/play.js' %}"></script>
 
 {% endblock content %}

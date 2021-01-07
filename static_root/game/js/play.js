@@ -88,6 +88,7 @@ function fortyFiveSecFunc(){
         console.log(`chosenDisplay ${chosenDisplay}`);
         //console.log(`textbox.innerText ${textbox.value}`);
         console.log(`chosenAudio ${chosenAudio}`);
+        console.log("lol");
         
 
         answered = false;
@@ -97,7 +98,7 @@ function fortyFiveSecFunc(){
     else{
         repeatAudio();
 
-        
+        console.log("hello");
 
         if (textbox.innerHTML == correctFont){
             answered = true;

@@ -25,6 +25,14 @@ def play(request):
     media = Media.objects.get(id=1)
     return render (request, "game/play.html", {"user":u, "logged_in": True, "media": media})
 
+def submit(request):
+    pass
+
+def getPrevious(request):
+    #*This somehow gets something. 
+    
+    username = request.GET.get()
+
 
 
 

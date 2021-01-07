@@ -14,8 +14,8 @@ class Player(models.Model):
     #*Cuz I can just filter out by name
     name = models.CharField(max_length=300, null=True)
     #*We want the records to be stored as none if there are no records so I can then change to 0
-    previous_record = models.IntegerField(null=True)
-    highscore = models.IntegerField(null=True)
+    previous_record = models.IntegerField(null=True, default=0)
+    highscore = models.IntegerField(null=True, default=0)
 
 class Media(models.Model):
     #*When I change orders, I have to redo it. 
