@@ -20,12 +20,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from game import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', include("register.urls")),
     path('', include("game.urls")),
-    path('', include("django.contrib.auth.urls"))
+    path('', include("django.contrib.auth.urls")),
+    path('home/', v.home)
     #!This is essentially just playing the media root at that specific url
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #?Now I am kind of confused because I no longer need the static thingy. 

@@ -50,6 +50,25 @@ function mainloop(){
         }
 
         else{
+            $(document).ready(function(event){
+                //event.preventDefault();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '/home/',
+                    //!Since home doesn't already have a response getting method, I will receive it through game.home
+                    data:{
+                        score: score,
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                    },
+
+                    success: function(){
+                        alert("success");
+                    }
+                })
+            
+            });
+
             //!I have to do the following
             //!I HAVE TO DO THE FIRST STEP BEFORE THE GAME ANYWAY TO SHOW THE 
             //*1. Get the high score from the model in this javascript file. 
@@ -131,12 +150,14 @@ function mainloop(){
 //!To make things simpler, I think I should just create a new simple registration form for now using ajax
 //!Or, I should try it out on the login window or the highscores window. 
 
+//!I don't need to getPrevious because I can just load that info from the HTML document itself. 
 function getPrevious(){
     //!Here I want to get the value of the previous high score. 
     //So the django {% url %} method will generate a new url based on the form information
     //https://stackoverflow.com/questions/4599423/using-url-in-django-templates
 
 //!Somehow JsonResponse is involved. 
+/*
 <a href="{% url 'login' %}">logout</a>
     $(document).ready(function(event){
         event.preventDefault();
@@ -151,7 +172,7 @@ function getPrevious(){
 
             }
         }
-    });
+    });*/
 }
 //https://stackoverflow.com/questions/46322894/change-a-django-model-with-javascript 
 //I need to dump some json stuff from my views. 
