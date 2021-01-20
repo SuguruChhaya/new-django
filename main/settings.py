@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "game",
     "register",
+    "crispy_forms",
+    
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,5 @@ LOGIN_REDIRECT_URL = "/"
 MEDIA_URL = '/media/'
 #*After I upload it, I guess it doesn't really matter
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_files")
+
+CRISPY_TEMPlATE_PACK = "bootstrap4"

@@ -1,13 +1,15 @@
 {% extends "game/base.html" %}
+{% load crispy_forms_tags %} 
 
 {% block title %}
 <title>Create an account</title>
 {% endblock title%}
 
 {% block content %}
+<br>
 <form method="POST" class="form-group">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
     <button type="submit" class="btn btn-success">Register</button>
 </form>
 

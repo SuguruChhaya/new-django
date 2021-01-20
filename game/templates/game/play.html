@@ -57,8 +57,8 @@
     <source src="{{media.black.url}}" type="audio/mpeg">
 </audio>
 
-<p>Previous score: </p>
-<p id="previousScore"></p>
+<p>Highscore: </p>
+<p id="highscore">{{ highscore }}</p>
 <p>Current score: </p>
 <p id="currentScore"></p>
 
@@ -93,14 +93,15 @@
 <div id="rectangle" style="width: 50px; height: 25px; background-color: red;">.</div>
 <li id="purple">purple</li>
 <div id="rectangle" style="width: 50px; height: 25px; background-color: purple;">.</div>
-<li id="blue">purple</li>
+<li id="blue">blue</li>
 <div id="rectangle" style="width: 50px; height: 25px; background-color: blue;">.</div>
 <li id="black">black</li>
 <div id="rectangle" style="width: 50px; height: 25px; background-color: black;">.</div>
 </ul>
 
 <!--!The todo list app didn't have an action tag in the forms tag. I think it doesn't really play a big role. -->
-<form id=#submit action="/submit">
+<!--<form id=#submit action="/submit">-->
+<form method="POST">
     {% csrf_token %}
 </form>
 

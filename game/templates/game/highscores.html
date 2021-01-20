@@ -1,0 +1,26 @@
+{% extends 'game/base.html' %}
+
+{% block title %}
+<title>Highscores</title>
+{% endblock title %}
+
+{% block content %}
+<br>
+<table border="2">
+    <tr>
+        <td>Name</td>
+        <td>Highscore</td>
+    </tr>
+    <!--!Trouble creating double for loop and displaying it. -->
+    {% for user in sortedDict %}
+    <tr>
+        {% for category in user %}
+            <td>
+                {{category}}
+            </td>
+        {% endfor %}
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -12,6 +12,8 @@
             {% if logged_in %}
             <p>Welcome back</p>
             <p>{{user.name}}</p>
+            {% else %}
+            <p>An account is required to play</p>
             {% endif %}
         </div>
 
@@ -20,7 +22,7 @@
                 <!--Jumping to links through the sidebar-->
                 <a href="/">Home</a>
                 <a href="https://docs.google.com/document/d/1sB8USLTgc870auaG-4M7tktZpwCTLaR99vMfD-WpJfI/edit?usp=sharing" target="_blank">About</a>
-                <!--<a href="/highscores">Highscores</a>-->
+                <a href="/highscores">Highscores</a>
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
                 <a href="/logout">Logout</a>
@@ -34,3 +36,5 @@
         </body>
 
 </html>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
