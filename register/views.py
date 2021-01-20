@@ -18,7 +18,7 @@ def register(request):
             #*I think I can just redirect to login
             #!I have to differentiate between what is done at registration vs login
             n = form.cleaned_data['username']
-            p = Player(name=n, previous_record=0, highscore=0)
+            p = Player(name=n, highscore=0)
             p.save()
             form.save()
             return redirect("/login")
