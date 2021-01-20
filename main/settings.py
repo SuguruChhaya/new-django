@@ -128,12 +128,13 @@ STATIC_URL = '/static/'
 
 #!Since we are going to host all these files and not use something like amazon aws, I need to add static root
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
-
+#!For the sake of hosting static files on pythonanywhere, I need to collect static
 
 LOGIN_REDIRECT_URL = "/"
 
 MEDIA_URL = '/media/'
 #*After I upload it, I guess it doesn't really matter
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_files")
 
 CRISPY_TEMPlATE_PACK = "bootstrap4"
